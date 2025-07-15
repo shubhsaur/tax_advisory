@@ -4,3 +4,4 @@ psycopg2
 python-dotenv
 PyPDF2
 pytesseract 
+pdf2image
