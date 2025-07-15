@@ -1,0 +1,358 @@
+body {
+    font-family: 'Aptos Display', Arial, sans-serif;
+    background: #f8fbff;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 80, 200, 0.08);
+    padding: 32px 24px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 0.25em;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #2563eb;
+    font-size: 1.1rem;
+    margin-bottom: 2em;
+}
+
+.start-btn {
+    background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9em 2.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.start-btn:hover {
+    background: linear-gradient(90deg, #1d4ed8 60%, #3b82f6 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+footer {
+    margin-top: 2em;
+    color: #aaa;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 24px 4px;
+        padding: 18px 6px 8px 6px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+#stepper {
+    width: 100%;
+    margin-bottom: 2em;
+}
+.step {
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+#upload-form, #review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+}
+#pdf-input {
+    font-size: 1rem;
+    padding: 0.5em;
+}
+#review-fields {
+    width: 100%;
+}
+#review-form button {
+    margin-right: 1em;
+}
+#back-btn {
+    background: #e0e7ef;
+    color: #2563eb;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5em 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 1em;
+    transition: background 0.2s;
+}
+#back-btn:hover {
+    background: #c7d2fe;
+}
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em 2em;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
+    z-index: 1000;
+    opacity: 0.95;
+    font-size: 1.05em;
+    transition: opacity 0.3s, background 0.2s;
+}
+.toast-success {
+    background: #22c55e;
+    color: #fff;
+}
+.toast-error {
+    background: #f87171;
+    color: #fff;
+}
+
+/* Stylized file input */
+#upload-form {
+    position: relative;
+}
+#pdf-input {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80%;
+    height: 44px;
+    cursor: pointer;
+    z-index: 2;
+}
+.file-label {
+    display: inline-block;
+    background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 2em;
+    cursor: pointer;
+    margin-right: 1em;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+    z-index: 1;
+}
+.file-label:hover {
+    background: linear-gradient(90deg, #1d4ed8 60%, #3b82f6 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+#upload-form button[type="submit"] {
+    background: #fff;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.7em 2em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 0.5em;
+}
+#upload-form button[type="submit"]:hover {
+    background: #2563eb;
+    color: #fff;
+}
+#file-chosen {
+    margin-left: 1em;
+    font-size: 0.98em;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+/* Review form sections */
+.review-section {
+    width: 80%;
+    margin-bottom: 1.5em;
+    padding: 1em 1.2em;
+    background: #f3f7fd;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(37,99,235,0.04);
+}
+.review-section-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.7em;
+}
+
+/* Modern input fields */
+#review-form input[type="text"] {
+    width: 100%;
+    padding: 0.7em 1em;
+    border: 1.5px solid #dbeafe;
+    border-radius: 7px;
+    font-size: 1.05em;
+    margin-bottom: 1em;
+    background: #f8fbff;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgba(37,99,235,0.03);
+}
+#review-form input[type="text"]:focus {
+    border: 1.5px solid #2563eb;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+}
+
+#review-form label {
+    font-weight: 500;
+    color: #2563eb;
+    margin-bottom: 0.2em;
+    display: block;
+}
+
+#review-form button[type="submit"] {
+    background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9em 2.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 1em;
+}
+#review-form button[type="submit"]:hover {
+    background: linear-gradient(90deg, #1d4ed8 60%, #3b82f6 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Spinner overlay */
+#spinner-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.7);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 7px solid #e0e7ef;
+    border-top: 7px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.regime-card {
+    position: relative;
+    border: 2px solid #dbeafe;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f8fbff 60%, #e0e7ef 100%);
+    padding: 1.7em 2.2em 1.2em 2.2em;
+    min-width: 210px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #2563eb;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.07);
+    transition: border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.regime-card .regime-icon {
+    font-size: 2.2em;
+    margin-bottom: 0.3em;
+    color: #f59e42;
+    filter: drop-shadow(0 2px 4px rgba(245,158,66,0.10));
+}
+.regime-card.selected {
+    border: 2.5px solid #2563eb;
+    background: linear-gradient(135deg, #e0e7ef 60%, #f8fbff 100%);
+    color: #1d4ed8;
+    box-shadow: 0 8px 32px rgba(37,99,235,0.16);
+    transform: scale(1.04);
+}
+.regime-card:hover {
+    box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+    transform: scale(1.03);
+}
+.regime-card .regime-result {
+    display: none;
+    margin-top: 1em;
+    font-size: 1.08em;
+    color: #222;
+    background: #fff;
+    border-radius: 10px;
+    padding: 0.9em 0.7em;
+    box-shadow: 0 1px 4px rgba(37,99,235,0.04);
+}
+.regime-card.selected .regime-result {
+    display: block;
+}
+#regime-results {
+    margin-top: 1.5em;
+    font-size: 1.1em;
+    color: #222;
+}
+#regime-btn {
+    background: linear-gradient(90deg, #f59e42 60%, #fbbf24 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9em 2.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(245, 158, 66, 0.08);
+    transition: background 0.2s, transform 0.2s;
+    margin-left: 0.5em;
+}
+#regime-btn:hover {
+    background: linear-gradient(90deg, #f59e42 40%, #f59e42 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+#regime-back-btn {
+    background: #e0e7ef;
+    color: #2563eb;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5em 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 1em;
+    transition: background 0.2s;
+}
+#regime-back-btn:hover {
+    background: #c7d2fe;
+} 
