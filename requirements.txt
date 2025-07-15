@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+psycopg2
+python-dotenv
+PyPDF2
+pytesseract 
